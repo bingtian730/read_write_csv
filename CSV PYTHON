@@ -1,0 +1,27 @@
+# how to read csv row by row, or col by col
+import os
+import csv
+csvpath = os.path.join('..', 'THE FOLDER', 'XXXX.csv')
+with open(csvpath,newline='') as csvfile:
+    csvreader = csv.reader(csvfile, delimiter=',')
+    header = next(csvreader)
+    print(header) # where can print header
+    for row in csvreader:  # a loop to print row by row
+        print(row[0]) #the first col of the dataset
+        
+# how to write csv row by row
+output_path = os.path.join("..", "output", "xxx.csv")
+
+# Open the file using "write" mode. Specify the variable to hold the contents
+with open(output_path, 'w', newline='') as csvfile:
+
+    # Initialize csv.writer
+    csvwriter = csv.writer(csvfile, delimiter=',')
+
+    # Write the first row (column headers)
+    csvwriter.writerow(['xx', 'yy', 'zz'])
+    
+    # Write the second row (column headers)
+    csvwriter.writerow(['aa', 'bb', 'cc'])
+
+# BE VERY CAREFUL WITH THE INDENTATION
